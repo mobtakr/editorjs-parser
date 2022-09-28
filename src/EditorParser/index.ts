@@ -18,7 +18,7 @@ class EditorParser {
   constructor(blocks: any) {
     this.blocks = blocks;
   }
-  registerBlock(type: string, block: ReactNode) {
+  registerBlock(type: string, block: any) {
     this.blockMapping[type] = block;
   }
   parse(): IBlock[] {

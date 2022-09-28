@@ -1,6 +1,6 @@
 {
   "name": "@mobtakr/editorjs-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Editor JS Parser and Renderer for React",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -16,20 +16,18 @@
     "url": "git+https://github.com/mobtakr/editorjs-parser.git"
   },
   "keywords": [
-    "Editor",
-    "JS",
+    "Editor.js",
     "Parser",
-    "and",
     "Renderer",
-    "for",
-    "React"
+    "React.js",
+    "Next.js"
   ],
   "author": "Mobtakr",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mobtakr/editorjs-parser/issues"
   },
-  "homepage": "https://github.com/mobtakr/editorjs-parser#readme",
+  "homepage": "https://mobtakr.com/",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
