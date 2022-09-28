@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
-    "webpack": "webpack",
-    "build": "rimraf dist && npm run build:types && npm run build:js",
+    "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,18 +34,19 @@
     "@babel/preset-env": "^7.19.3",
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.18.6",
+    "@types/react": ">=16",
+    "@types/react-dom": ">=16",
     "babel-loader": "^8.2.2",
     "next": ">=12.3.1",
-    "react": ">=16",
     "path": "^0.12.7",
+    "react": ">=16",
+    "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
     "typescript": "^4.8.4",
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^4.11.1",
-    "@types/react": ">=16",
-    "@types/react-dom": ">=16"
+    "webpack-dev-server": "^4.11.1"
   },
   "peerDependencies": {
     "@types/react": ">=16",
