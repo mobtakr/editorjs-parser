@@ -7,14 +7,14 @@ The package lets you render the content of Editor.js and lets you extend the fun
 Run
 
 ```
-npm install --save-dev @mobtakr/editorjs-parser
+npm install @mobtakr/editorjs-parser
 ```
 
 ## Editor.js Output
 
-[Editor.js](https://editorjs.io/) is an a great block styled editor. It lets you embed a text editor in your application.
+[Editor.js](https://editorjs.io/) is a great block-styled editor. It lets you embed a text editor in your application.
 
-The output of Editor.js is a Json Object like below:
+The output of Editor.js is a JSON Object like below:
 
 ```
 {
@@ -54,12 +54,12 @@ The output of Editor.js is a Json Object like below:
 
 ## How to use Editor.js Parser?
 
-Below is an example of how you can integrate Editor.js Parser into your React.js or Next.js application>
+Below is an example of how you can integrate Editor.js Parser into your React.js or Next.js application.
 
 First Install the package
 
 ```
-npm install --save-dev @mobtakr/editorjs-parser
+npm install @mobtakr/editorjs-parser
 ```
 
 Then create a component to render the content.
@@ -70,13 +70,12 @@ import styles from "./PostContent.module.css";
 
 const PostContent = (props: { content: string }) => {
   const content = JSON.parse(props.content);
-  console.log(content);
   const parser = new EditorParser(content.blocks);
 
   const parsedBlocks = parser.parse();
   return (
     <>
-      <EditorRenderer parsedBlocks={parsedBlocks} styles={styles} />{" "}
+      <EditorRenderer parsedBlocks={parsedBlocks} styles={styles} />
     </>
   );
 };
@@ -85,11 +84,11 @@ export default PostContent;
 
 ```
 
-In the example above you first parse the Json object then, create an instance of EditorParser and pass it `content.blocks`.
+In the example above you first, parse the JSON object then, create an instance of EditorParser and pass it `content.blocks`.
 
 Now, you can get the parsed blocks by calling the `parse method`.
 
-Finally pass a parsedBlocks prop and a styles object to `<EditorRenderer />` component.
+Finally, pass a parsedBlocks prop and a styles object to `<EditorRenderer />` component.
 
 ## styling and the Style Object
 
@@ -107,7 +106,7 @@ Each Editor.js block has a type and an id.
 
 The EditorRenderer component expects a style object that contains styles for each type.
 
-For type `paragraph` you can pass a style objects like this
+For type `paragraph` you can pass a style object like this
 
 ```
 .paragraph {
@@ -116,7 +115,7 @@ For type `paragraph` you can pass a style objects like this
 }
 ```
 
-Besides that each block has another class which is `block`.
+Besides that, each block has another class which is `block`.
 So you can add some shared styles to your blocks.
 
 ```
@@ -134,7 +133,7 @@ The `registerBlock method` of the EditorParser class enables you to parse more b
 It expects two arguments
 
 1.  The type or the block.
-2.  A function that takes the block as an argument it returns a React component.
+2.  A function that takes the block as an argument and returns a React component.
 
 ### Example
 
