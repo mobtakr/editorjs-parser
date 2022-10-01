@@ -24,14 +24,14 @@ The output of Editor.js is a Json Object like below:
             "id": "9xynmGdBTA",
             "type": "paragraph",
             "data": {
-                "text": "DGDSGHD GSGG"
+                "text": "I am a text generated from Editor.js"
             }
         },
         {
             "id": "IF6QCbnQQz",
             "type": "paragraph",
             "data": {
-                "text": "cxbcxbbcxb"
+                "text": "I am a text generated from Editor.js"
             }
         },
         {
@@ -40,10 +40,10 @@ The output of Editor.js is a Json Object like below:
             "data": {
                 "style": "ordered",
                 "items": [
-                    "fjhkmhg,",
-                    "gdhfd",
-                    "fdhfdh",
-                    "fdh"
+                    "I am item one,",
+                    "and I am two",
+                    "three ",
+                    "four"
                 ]
             }
         }
@@ -87,7 +87,7 @@ export default PostContent;
 
 In the example above you first parse the Json object then, create an instance of EditorParser and pass it `content.blocks`.
 
-Now, you can get the parsed blocks by calling the `parse mehtod`.
+Now, you can get the parsed blocks by calling the `parse method`.
 
 Finally pass a parsedBlocks prop and a styles object to `<EditorRenderer />` component.
 
@@ -100,7 +100,7 @@ Each Editor.js block has a type and an id.
     "id": "9xynmGdBTA",
     "type": "paragraph",
     "data": {
-        "text": "DGDSGHD GSGG"
+        "text": "I am a text generated from Editor.js"
     }
 }
 ```
@@ -134,7 +134,7 @@ The `registerBlock method` of the EditorParser class enables you to parse more b
 It expects two arguments
 
 1.  The type or the block.
-2.  A function that takes the block as an arguement it returns a React component.
+2.  A function that takes the block as an argument it returns a React component.
 
 ### Example
 
@@ -150,7 +150,7 @@ const TextBlock = (props: { block: any }) => {
 export default TextBlock;
 ```
 
-Now, you can create a function that takes a block as an arguemnt and returns that component. `TextBlock`
+Now, you can create a function that takes a block as an argument and returns that component. `TextBlock`
 
 ```
 export const paragraphMapFunc = (block: any) => <TextBlock block={block} />;
