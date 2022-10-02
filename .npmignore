@@ -1,5 +1,4 @@
 node_modules/
-*.d.ts
 *.log
 yarn.lock
 package-lock.json
