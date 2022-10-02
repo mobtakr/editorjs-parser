@@ -4,3 +4,7 @@ node_modules/
 yarn.lock
 package-lock.json
 src/
+.github
+tsconfig.json
+.babelrc
+README.md

@@ -31,10 +31,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name:
           install
-        run: npm install
-      - name:
-          build
-        run: npm run build
+        run: npm ci
       - name:
           publish
         run: npm publish --access public
@@ -45,15 +42,15 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+        # with:
+        #   tag_name: ${{ github.ref }}
+        #   release_name: Release ${{ github.ref }}
+        #   body: |
+        #     Changes in this Release
+        #     - First Change
+        #     - Second Change
+        #   draft: false
+        #   prerelease: false
   
   package:
     needs: [build]
