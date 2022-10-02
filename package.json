@@ -1,13 +1,13 @@
 {
   "name": "@mobtakr/editorjs-parser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Editor JS Parser and Renderer for React",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build:types": "tsc",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
