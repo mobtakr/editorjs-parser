@@ -1,59 +1,27 @@
-name: 'Publish EditorJS Parser' 
+name: "Publish EditorJS Parser"
 
 on:
   push:
     branches:
-      - 'master'
+      - "master"
   pull_request:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - run: npm ci
-    - name:
-        build
-      run: npm run build
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm ci
+      - name: build
+        run: npm run build
     # - run: npm run lint
     # - run: npm test
-      - uses: 'actions/checkout@v3'
-      - uses: 'actions/setup-node@v3'
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - name:
-          install
-        run: npm ci
-      - name:
-          build
-        run: npm run build
-      - name:
-          publish
-        run: npm publish --access public
-        env: 
-          NODE_AUTH_TOKEN: '${{ secrets.NPM_TOKEN }}'
-      # - name: Create Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # with:
-        #   tag_name: ${{ github.ref }}
-        #   release_name: Release ${{ github.ref }}
-        #   body: |
-        #     Changes in this Release
-        #     - First Change
-        #     - Second Change
-        #   draft: false
-        #   prerelease: false
-  
   package:
     needs: [build]
     runs-on: ubuntu-18.04
@@ -70,24 +38,24 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-            name: package
-            path: "*.tgz"
+          name: package
+          path: "*.tgz"
   publish:
     name: "Publish to GitHub Packages"
     needs: [package]
     runs-on: ubuntu-18.04
     if: github.repository_owner == 'mobtakr'
     steps:
-    - name: Upload
-      uses: actions/download-artifact@v2
-      with:
+      - name: Upload
+        uses: actions/download-artifact@v2
+        with:
           name: package
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-        registry-url: https://npm.pkg.github.com/
-        scope: "@mobtakr"
-    - run: echo "registry=https://npm.pkg.github.com/@mobtakr" >> .npmrc
-    - run: npm publish $(ls *.tgz)
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: https://npm.pkg.github.com/
+          scope: "@mobtakr"
+      - run: echo "registry=https://npm.pkg.github.com/@mobtakr" >> .npmrc
+      - run: npm publish $(ls *.tgz)
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
