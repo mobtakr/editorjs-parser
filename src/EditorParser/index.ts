@@ -22,14 +22,14 @@ class EditorParser {
     this.blockMapping[type] = block;
   }
   parse(): IBlock[] {
-    return this.blocks.map((block: any) => {
-      if (!this.blockMapping[block.type]) {
-        throw `Please provide a block for ${block.type}`;
+    return this?.blocks?.map((block: any) => {
+      if (!this?.blockMapping[block?.type]) {
+        throw `Please provide a block for ${block?.type}`;
       }
       const blockData: IBlock = {
         id: block?.id,
         type: block?.type,
-        component: this.blockMapping[block.type](block),
+        component: this.blockMapping[block?.type](block),
       };
       return blockData;
     });
