@@ -5,12 +5,12 @@ const EditorRenderer = (props: EditorRendererProps) => {
   const styles = props.styles;
   return (
     <>
-      {parsedBlocks.map((block: Block) => (
+      {parsedBlocks?.map((block: Block) => (
         <div
-          className={`${styles?.block} ${styles[block.type]}`}
-          key={block.id}
+          className={`${styles?.block} ${styles[block?.type]}`}
+          key={block?.id}
         >
-          {block.component}
+          {block?.component}
         </div>
       ))}
     </>
