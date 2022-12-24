@@ -1,4 +1,7 @@
 const removeTags = (str: string) => {
+  if (!str) {
+    return null;
+  }
   return str
     .replace(/<[^>]*>/g, " ")
     .replace(/&nbsp;/g, " ")

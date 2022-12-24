@@ -3,6 +3,10 @@ import React from "react";
 const EditorRenderer = (props: EditorRendererProps) => {
   const parsedBlocks: Block[] = props.parsedBlocks;
   const styles = props.styles;
+
+  if (!parsedBlocks) {
+    return null;
+  }
   return (
     <>
       {parsedBlocks?.map((block: Block) => (
