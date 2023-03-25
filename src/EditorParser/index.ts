@@ -8,7 +8,8 @@ class EditorParser {
     list: listFactory,
     checklist: checkListFactory,
     code: codeFactory,
-    delimiterFactory: delimiterFactory
+    delimiterFactory: delimiterFactory,
+    youtubeEmbed: youtubeEmbedFactory,
   };
   private blocks;
   constructor(blocks: any) {
