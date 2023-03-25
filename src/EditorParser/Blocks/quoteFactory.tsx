@@ -1,4 +1,6 @@
-import { removeTags } from "../../helpers";
+import React from "react";
+import sanitizeHtml, {IOptions} from 'sanitize-html';
+import parse from "html-react-parser";
 
 type QuoteFactoryProps = {
   data: {
@@ -8,24 +10,20 @@ type QuoteFactoryProps = {
   };
 }
 
-export const quoteFactory = (props: { block: QuoteFactoryProps }) => {
-  const block = props.block;
-  const text = removeTags(block?.data?.text);
-  const caption = removeTags(block?.data?.caption);
+export const quoteFactory = (block: QuoteFactoryProps, sanitizeHtmlOptions:IOptions) => {
+  const text = sanitizeHtml(block?.data?.text, sanitizeHtmlOptions);
+  const caption = sanitizeHtml(block?.data?.caption, sanitizeHtmlOptions);
   if (!text) {
     return null;
   }
   return (
-    <p>
-      <span className="quote">
-        {text}
-        {caption && (
-          <>
-            <br />
-            <span className="quote-caption">{caption}</span>
-          </>
-        )}
-      </span>
-    </p>
+    <React.Fragment>
+      <p>
+        <figure>
+          <blockquote>{parse(text)}</blockquote>
+          <figcaption>{parse(caption)}</figcaption>
+        </figure>
+      </p>
+    </React.Fragment>
   );
 };
