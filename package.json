@@ -1,5 +1,5 @@
 {
-  "name": "@klaucode/editorjs-parser",
+  "name": "@nodsec/editorjs-parser",
   "version": "0.1.1",
   "description": "Editor JS Parser and Renderer for React",
   "main": "dist/index.js",
