@@ -1,18 +1,14 @@
-import { ReactNode } from "react";
-import IBlock from "./Blocks";
-import {
-  imageMapFunc,
-  listMapFunc,
-  paragraphMapFunc,
-  titleMapFunc,
-} from "./MappingFunctions";
+import IBlock,{ checkListFactory, codeFactory, delimiterFactory, headerFactory, imageFactory, listFactory, paragraphFactory, quoteFactory, tableFactory, youtubeEmbedFactory } from "./Blocks";
 
 class EditorParser {
   private blockMapping: any = {
-    header: titleMapFunc,
-    image: imageMapFunc,
-    paragraph: paragraphMapFunc,
-    list: listMapFunc,
+    header: headerFactory,
+    image: imageFactory,
+    paragraph: paragraphFactory,
+    list: listFactory,
+    checklist: checkListFactory,
+    code: codeFactory,
+    delimiterFactory: delimiterFactory
   };
   private blocks;
   constructor(blocks: any) {
