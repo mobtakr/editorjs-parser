@@ -1,5 +1,5 @@
 {
-  "name": "@mobtakr/editorjs-parser",
+  "name": "@klaucode/editorjs-parser",
   "version": "0.1.1",
   "description": "Editor JS Parser and Renderer for React",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mobtakr/editorjs-parser.git"
+    "url": "git+https://github.com/klaucode/editorjs-parser.git"
   },
   "keywords": [
     "Editor.js",
@@ -21,12 +21,12 @@
     "React.js",
     "Next.js"
   ],
-  "author": "Mobtakr",
+  "author": "Klaucode & Mobtakr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mobtakr/editorjs-parser/issues"
+    "url": "https://github.com/klaucode/editorjs-parser/issues"
   },
-  "homepage": "https://mobtakr.com/",
+  "homepage": "https://klauco.de/",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
