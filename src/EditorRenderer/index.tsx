@@ -8,16 +8,14 @@ const EditorRenderer = (props: EditorRendererProps) => {
     return null;
   }
   return (
-    <>
+    <React.Fragment>
       {parsedBlocks?.map((block: Block) => (
-        <div
-          className={`${styles?.block} ${styles[block?.type]}`}
-          key={block?.id}
-        >
+        <div className={`${styles?.block} ${styles[block?.type]}`}
+          key={block?.id}>
           {block?.component}
         </div>
       ))}
-    </>
+    </React.Fragment>
   );
 };
 type EditorRendererProps = {

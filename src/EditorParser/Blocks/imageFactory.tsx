@@ -1,6 +1,12 @@
-import React from "react";
+type ImageFactoryProps = {
+  data: {
+    file: {
+      url: string;
+    };
+  };
+};
 
-const ImageBlock = (props: { block: any }) => {
+export const imageFactory = (props: { block: ImageFactoryProps }) => {
   const block = props.block;
   const imageLink = block?.data?.file?.url;
   if (!imageLink) {
@@ -8,5 +14,3 @@ const ImageBlock = (props: { block: any }) => {
   }
   return <img alt="image" src={imageLink} />;
 };
-
-export default ImageBlock;
