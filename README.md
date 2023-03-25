@@ -7,7 +7,7 @@ The package lets you render the content of Editor.js and lets you extend the fun
 Run
 
 ```
-npm install @mobtakr/editorjs-parser
+npm install @klaucode/editorjs-parser
 ```
 
 ## Editor.js Output
@@ -59,13 +59,13 @@ Below is an example of how you can integrate Editor.js Parser into your React.js
 First Install the package
 
 ```
-npm install @mobtakr/editorjs-parser
+npm install @klaucode/editorjs-parser
 ```
 
 Then create a component to render the content.
 
 ```
-import { EditorParser, EditorRenderer } from "@mobtakr/editorjs-parser";
+import { EditorParser, EditorRenderer } from "@klaucode/editorjs-parser";
 import styles from "./PostContent.module.css";
 
 const PostContent = (props: { content: string }) => {
