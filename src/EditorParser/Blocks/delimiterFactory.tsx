@@ -1,8 +1,13 @@
+import React from "react";
+
 type DelimiterFactoryProps = {
   data: {};
 };
 
-export const delimiterFactory = (props: { block: DelimiterFactoryProps }) => {
-  const block = props.block;
-  return <div className="delimiter"></div>;
+export const delimiterFactory = (block: DelimiterFactoryProps) => {
+  return (
+    <React.Fragment>
+      <div className="delimiter"></div>
+    </React.Fragment>
+  );
 };

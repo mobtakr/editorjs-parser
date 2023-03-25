@@ -1,4 +1,6 @@
-import { removeTags } from "../../helpers";
+import React from "react";
+import sanitizeHtml, {IOptions} from "sanitize-html";
+import parse from "html-react-parser";
 
 type CodeFactoryProps = {
   data: {
@@ -6,11 +8,13 @@ type CodeFactoryProps = {
   };
 };
 
-export const codeFactory = (props: { block: CodeFactoryProps }) => {
-  const block = props.block;
-  const code = removeTags(block?.data?.code);
-  if (!code) {
+export const codeFactory = (
+  block: CodeFactoryProps,
+  sanitizeHtmlOptions: IOptions
+) => {
+  const html = sanitizeHtml(block?.data?.code);
+  if (!html) {
     return null;
   }
-  return <>{code}</>;
+  return <React.Fragment>{parse(html)}</React.Fragment>;
 };

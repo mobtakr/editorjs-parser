@@ -1,3 +1,4 @@
+import React from "react";
 import { removeTags } from "../../helpers";
 
 export type HeaderFactoryProps = {
@@ -8,17 +9,30 @@ export type HeaderFactoryProps = {
 }
 
 const createComponent = (level: number, text: string) => {
-  const components = [<h1 />, <h2 />, <h3 />, <h4 />, <h5 />, <h6 />];
-  const Component = components[level ? level - 1 : 0];
-  Component.props.children = text;
-  return Component;
+  switch (level) {
+    case 1:
+      return <h1>{text}</h1>;
+    case 2:
+      return <h2>{text}</h2>;
+    case 3:
+      return <h3>{text}</h3>;
+    case 4:
+      return <h4>{text}</h4>;
+    case 5:
+      return <h5>{text}</h5>;
+    case 6:
+      return <h6>{text}</h6>;
+    default:
+      return null;
+  }
 };
 
-export const headerFactory = (props: { block: HeaderFactoryProps }) => {
-  const block = props.block;
+export const headerFactory = (block: HeaderFactoryProps) => {
   const text = removeTags(block?.data?.text);
   if (!text) {
     return null;
   }
-  return createComponent(block?.data?.level, text);
+  return (
+    <React.Fragment>{createComponent(block?.data?.level, text)}</React.Fragment>
+  );
 };

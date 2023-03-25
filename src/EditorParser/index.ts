@@ -8,8 +8,10 @@ class EditorParser {
     list: listFactory,
     checklist: checkListFactory,
     code: codeFactory,
-    delimiterFactory: delimiterFactory,
+    delimiter: delimiterFactory,
+    table: tableFactory,
     youtubeEmbed: youtubeEmbedFactory,
+    quote: quoteFactory,
   };
   private blocks;
   constructor(blocks: any) {
@@ -18,15 +20,16 @@ class EditorParser {
   registerBlock(type: string, block: any) {
     this.blockMapping[type] = block;
   }
-  parse(): IBlock[] {
+  parse(sanitizeHtmlOptions: Record<string, any>): IBlock[] {
     return this?.blocks?.map((block: any) => {
       if (!this?.blockMapping[block?.type]) {
-        throw `Please provide a block for ${block?.type}`;
+        console.error(`Please provide a block for ${block?.type}`);
+        return;
       }
       const blockData: IBlock = {
         id: block?.id,
         type: block?.type,
-        component: this.blockMapping[block?.type](block),
+        component: this.blockMapping[block?.type](block, sanitizeHtmlOptions),
       };
       return blockData;
     });
