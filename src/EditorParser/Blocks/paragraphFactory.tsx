@@ -1,5 +1,6 @@
-import React, { useMemo } from "react";
-import { removeTags } from "../../helpers";
+import React from "react";
+import sanitizeHtml, {IOptions} from 'sanitize-html';
+import parse from "html-react-parser";
 
 type ParagraphFactoryProps = {
   data: {
@@ -7,11 +8,14 @@ type ParagraphFactoryProps = {
   };
 };
 
-export const paragraphFactory = (props: { block: ParagraphFactoryProps }) => {
-  const block = props.block;
-  const text = removeTags(block?.data?.text);
-  if (!text) {
+export const paragraphFactory = (block: ParagraphFactoryProps, sanitizeHtmlOptions:IOptions) => {
+  const html = sanitizeHtml(block?.data?.text, sanitizeHtmlOptions);
+  if (!html) {
     return null;
   }
-  return <p>{text}</p>;
+  return (
+    <React.Fragment>
+      <p>{parse(html)}</p>
+    </React.Fragment>
+  );
 };

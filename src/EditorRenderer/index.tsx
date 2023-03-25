@@ -9,12 +9,17 @@ const EditorRenderer = (props: EditorRendererProps) => {
   }
   return (
     <React.Fragment>
-      {parsedBlocks?.map((block: Block) => (
-        <div className={`${styles?.block} ${styles[block?.type]}`}
-          key={block?.id}>
-          {block?.component}
-        </div>
-      ))}
+      {parsedBlocks?.map((block: Block) => {
+        const classList = ["editorjs-block block"];
+        if (block?.type) classList.push(`block-${block?.type}`.toLowerCase());
+        if (styles?.block) classList.push(styles?.block);
+        if (styles?.[block?.type]) classList.push(styles?.[block?.type]);
+        return (
+          <div className={classList.join("")} key={block?.id}>
+            <div className="block-wrapper">{block?.component}</div>
+          </div>
+        );
+      })}
     </React.Fragment>
   );
 };
