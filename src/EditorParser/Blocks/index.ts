@@ -1,8 +1,9 @@
-import { ReactNode } from "react";
+import {ReactNode} from "react";
+
 interface IBlock {
-  id: string;
-  type: string;
-  component: ReactNode;
+    id: string;
+    type: string;
+    component: ReactNode;
 }
 
 export {checkListFactory} from "./checkListFactory";
