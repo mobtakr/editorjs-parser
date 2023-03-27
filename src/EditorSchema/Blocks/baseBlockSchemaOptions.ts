@@ -1,4 +1,4 @@
-export const baseBlockSchemaOptions = () => ({
+export const baseBlockSchema = () => ({
   id: {
     type: String,
     required: false,
