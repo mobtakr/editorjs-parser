@@ -1441,6 +1441,11 @@ client-only@0.0.1:
   resolved "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
 
+clone@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/clone/-/clone-2.1.2.tgz"
+  integrity sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==
+
 color-convert@^1.9.0:
   version "1.9.3"
   resolved "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
@@ -1927,6 +1932,11 @@ minimatch@^3.1.1:
   dependencies:
     brace-expansion "^1.1.7"
 
+mongo-object@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/mongo-object/-/mongo-object-3.0.1.tgz"
+  integrity sha512-EbiwWHvKOF9xhIzuwaqknwPISdkHMipjMs6DiJFicupgBBLEhUs0OOro9MuPkFogB17DZlsV4KJhhxfqZ7ZRMQ==
+
 ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
@@ -2212,6 +2222,14 @@ serialize-javascript@^6.0.1:
   integrity sha512-owoXEFjWRllis8/M1Q+Cw5k8ZH40e3zhp/ovX+Xr/vi1qj6QesbyXXViFbpNvWvPNAD62SutwEXavefrLJWj7w==
   dependencies:
     randombytes "^2.1.0"
+
+simpl-schema@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.npmjs.org/simpl-schema/-/simpl-schema-3.4.1.tgz"
+  integrity sha512-ud8kcF5BduR7VkL9A+3I/BTk2hOl+BWEetr0kQVo9t60QMLYJFmbMF3PAdeHjqqRvynazCZncZvOMG/G0gWCtA==
+  dependencies:
+    clone "^2.1.2"
+    mongo-object "^3.0.1"
 
 slash@^2.0.0:
   version "2.0.0"

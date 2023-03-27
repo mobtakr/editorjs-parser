@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "html-react-parser": "^3.0.15",
-    "sanitize-html": "^2.10.0"
+    "sanitize-html": "^2.10.0",
+    "simpl-schema": "^3.4.1"
   }
 }
