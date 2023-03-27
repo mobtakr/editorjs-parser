@@ -1,7 +1,7 @@
 {
   "name": "@nodsec/editorjs-parser",
-  "version": "0.1.5",
-  "description": "Editor JS Parser and Renderer for React",
+  "version": "0.1.6",
+  "description": "Editor JS Parser and Renderer for React with server-side SimpleSchema validation",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {

@@ -3,7 +3,7 @@ import {SimpleSchemaOptions} from "simpl-schema/dist/esm/types";
 
 export * from './Blocks';
 
-const _baseEditorSchema = () => ({
+export const _baseEditorSchema = () => ({
     version: {
         type: String,
         required: false,
@@ -19,7 +19,7 @@ const _baseEditorSchema = () => ({
     },
 });
 
-const _baseEditorSchemaOptions = {
+export const _baseEditorSchemaOptions = {
     clean: {
         filter: true,
         autoConvert: true,
@@ -30,7 +30,7 @@ const _baseEditorSchemaOptions = {
     requiredByDefault: true,
 };
 
-export const createEditorSchema = (blockValidators: ((options: SimpleSchemaOptions | undefined) => SimpleSchema)[], options: SimpleSchemaOptions | undefined = _baseEditorSchemaOptions) => {
+export const create = (blockValidators: ((options: SimpleSchemaOptions | undefined) => SimpleSchema)[], options: SimpleSchemaOptions | undefined = _baseEditorSchemaOptions) => {
     const schema = {
         ..._baseEditorSchema(),
         "blocks.$": SimpleSchema.oneOf(
