@@ -1,4 +1,4 @@
-export {baseBlockSchemaOptions} from "./baseBlockSchemaOptions";
+export {baseBlockSchema} from "./baseBlockSchemaOptions";
 export {blockCodeSchema} from "./codeBlockSchema";
 export {headerBlockSchema} from "./headerBlockSchema";
 export {imageBlockSchema} from "./imageBlockSchema";

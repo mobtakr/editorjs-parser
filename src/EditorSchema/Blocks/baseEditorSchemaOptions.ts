@@ -1,4 +1,4 @@
-export const baseEditorSchemaOptions = () => ({
+export const baseEditorSchema = () => ({
   version: {
     type: String,
     required: false,

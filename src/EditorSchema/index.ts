@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema';
 import { SimpleSchemaOptions } from "simpl-schema/dist/esm/types";
 
-const baseEditorSchemaOptions = () => ({
+export const baseEditorSchema = () => ({
     version: {
         type: String,
         required: false,
@@ -17,9 +17,20 @@ const baseEditorSchemaOptions = () => ({
     },
 });
 
-const createEditorSchema = (blockValidators:((options: SimpleSchemaOptions | undefined) => SimpleSchema)[], options: SimpleSchemaOptions | undefined = undefined) => {
+export const baseEditorSchemaOptions = {
+  clean: {
+    filter: true,
+    autoConvert: true,
+    trimStrings: true,
+    getAutoValues: true,
+    removeNullsFromArrays: true,
+  },
+  requiredByDefault: true,
+};
+
+const createEditorSchema = (blockValidators:((options: SimpleSchemaOptions | undefined) => SimpleSchema)[], options: SimpleSchemaOptions | undefined = baseEditorSchemaOptions) => {
         const schema = {
-          ...baseEditorSchemaOptions(),
+          ...baseEditorSchema(),
           "blocks.$": SimpleSchema.oneOf(
             ...blockValidators.map((blockValidator) => blockValidator(options))
           ),

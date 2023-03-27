@@ -1,12 +1,12 @@
 import SimpleSchema from "simpl-schema";
 import { SimpleSchemaOptions } from "simpl-schema/dist/esm/types";
-import { baseBlockSchemaOptions } from "./baseBlockSchemaOptions";
+import { baseBlockSchema } from "./baseBlockSchemaOptions";
 
 export const blockCodeSchema = (
   options: SimpleSchemaOptions | undefined = undefined
 ) =>
   new SimpleSchema({
-    ...baseBlockSchemaOptions(),
+    ...baseBlockSchema(),
     data: new SimpleSchema(
       {
         code: {
