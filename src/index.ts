@@ -1,4 +1,5 @@
-import { EditorParser } from "./EditorParser";
-import { EditorRenderer } from "./EditorRenderer";
+import {EditorParser} from "./EditorParser";
+import {EditorRenderer} from "./EditorRenderer";
 
-export { EditorParser, EditorRenderer };
+export {EditorParser, EditorRenderer};
+export * as EditorSchema from "./EditorSchema";

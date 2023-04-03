@@ -1,13 +1,13 @@
 # Editor.js Parser and Renderer for React.js or Next.js
 
-The package lets you render the content of Editor.js and lets you extend the functionality easily.
+The package lets you render the content of Editor.js and lets you extend the functionality easily. Package is based on `mobtakr/editorjs-parser` and enhanced for support more editor blocks and schema validation for server side.
 
 ## Install the package
 
 Run
 
 ```
-npm install @mobtakr/editorjs-parser
+npm install @klaucode/editorjs-parser
 ```
 
 ## Editor.js Output
@@ -52,20 +52,20 @@ The output of Editor.js is a JSON Object like below:
 }
 ```
 
-## How to use Editor.js Parser?
+## How to use Editor.js parser?
 
 Below is an example of how you can integrate Editor.js Parser into your React.js or Next.js application.
 
-First Install the package
+**First install the npm package**
 
 ```
-npm install @mobtakr/editorjs-parser
+npm install @klaucode/editorjs-parser
 ```
 
-Then create a component to render the content.
+**Then create a component to render the content**
 
 ```
-import { EditorParser, EditorRenderer } from "@mobtakr/editorjs-parser";
+import { EditorParser, EditorRenderer } from "@klaucode/editorjs-parser";
 import styles from "./PostContent.module.css";
 
 const PostContent = (props: { content: string }) => {
@@ -90,7 +90,7 @@ Now, you can get the parsed blocks by calling the `parse method`.
 
 Finally, pass a parsedBlocks prop and a styles object to `<EditorRenderer />` component.
 
-## styling and the Style Object
+## Styling and the Style Object
 
 Each Editor.js block has a type and an id.
 
@@ -124,6 +124,18 @@ So you can add some shared styles to your blocks.
   margin-block: 10px;
 }
 ```
+
+## Supported blocks
+**Package currently supports following blocks:**
+✅ [editorjs/checklist](https://www.npmjs.com/package/@editorjs/checklist) (official)
+✅ [editorjs/code](https://www.npmjs.com/package/@editorjs/code) (official)
+✅ [editorjs/header](https://www.npmjs.com/package/@editorjs/header) (official)
+✅ [editorjs/image](https://www.npmjs.com/package/@editorjs/image) (official)
+✅ [editorjs/list](https://www.npmjs.com/package/@editorjs/list) (official)
+✅ [editorjs/paragraph](https://www.npmjs.com/package/@editorjs/paragraph) (official)
+✅ [editorjs/quote](https://www.npmjs.com/package/@editorjs/quote) (official)
+✅ [editorjs/table](https://www.npmjs.com/package/@editorjs/table) (official)
+✅ [editorjs-youtube-embed](https://www.npmjs.com/package/editorjs-youtube-embed) (unofficial)
 
 ## Add support for additional blocks
 

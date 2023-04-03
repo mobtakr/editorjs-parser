@@ -1,7 +1,7 @@
 {
-  "name": "@mobtakr/editorjs-parser",
-  "version": "0.1.1",
-  "description": "Editor JS Parser and Renderer for React",
+  "name": "@nodsec/editorjs-parser",
+  "version": "0.1.6",
+  "description": "Editor JS Parser and Renderer for React with server-side SimpleSchema validation",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mobtakr/editorjs-parser.git"
+    "url": "git+https://github.com/klaucode/editorjs-parser.git"
   },
   "keywords": [
     "Editor.js",
@@ -21,12 +21,12 @@
     "React.js",
     "Next.js"
   ],
-  "author": "Mobtakr",
+  "author": "Klaucode & Mobtakr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mobtakr/editorjs-parser/issues"
+    "url": "https://github.com/klaucode/editorjs-parser/issues"
   },
-  "homepage": "https://mobtakr.com/",
+  "homepage": "https://klauco.de/",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
@@ -36,6 +36,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@types/react": ">=16",
     "@types/react-dom": ">=16",
+    "@types/sanitize-html": "^2.9.0",
     "babel-loader": "^8.2.2",
     "next": ">=12.3.1",
     "react": ">=16",
@@ -44,5 +45,10 @@
   "peerDependencies": {
     "next": ">=10.3.1",
     "react": ">=16"
+  },
+  "dependencies": {
+    "html-react-parser": "^3.0.15",
+    "sanitize-html": "^2.10.0",
+    "simpl-schema": "^3.4.1"
   }
 }
