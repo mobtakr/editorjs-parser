@@ -1,6 +1,6 @@
 {
   "name": "@mobtakr/editorjs-parser",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Editor JS Parser and Renderer for React with server-side SimpleSchema validation",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
