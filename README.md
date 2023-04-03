@@ -1,13 +1,16 @@
 # Editor.js Parser and Renderer for React.js or Next.js
 
-The package lets you render the content of Editor.js and lets you extend the functionality easily. Package is based on `mobtakr/editorjs-parser` and enhanced for support more editor blocks and schema validation for server side.
+The package lets you render the content of Editor.js and lets you extend the functionality easily. 
+
+Thanks @klaucode for the enhancements and the additions of new blocks. 
+
 
 ## Install the package
 
 Run
 
 ```
-npm install @klaucode/editorjs-parser
+npm install @mobtakr/editorjs-parser
 ```
 
 ## Editor.js Output
