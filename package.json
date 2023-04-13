@@ -1,6 +1,6 @@
 {
   "name": "@mobtakr/editorjs-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Editor JS Parser and Renderer for React with server-side SimpleSchema validation",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -21,7 +21,18 @@
     "React.js",
     "Next.js"
   ],
-  "author": "Mobtakr",
+  "contributors": [
+    {
+      "name": "Mohamed Gad",
+      "url": "https://mohamedgad.me",
+      "email": "mohamedgad@mobtakr.com"
+    },
+    {
+      "name": "Klaucode",
+      "url": "https://github.com/klaucode"
+    }
+  ],
+  "author": "Mobtakr <info@mobtakr.com> (https://mobtakr.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mobtakr/editorjs-parser/issues"
