@@ -1,6 +1,5 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
-import parse from "html-react-parser";
 
 type ListBlockProps = {
   data: {
@@ -18,7 +17,7 @@ export const listFactory = (
   const createList = (items: string[]) => {
     return items?.map((item) => {
       const html = sanitizeHtml(item, sanitizeHtmlOptions);
-      return <li key={item}>{parse(html)}</li>;
+      return <li key={item}>{html}</li>;
     });
   };
 

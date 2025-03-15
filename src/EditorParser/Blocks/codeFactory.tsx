@@ -1,6 +1,5 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
-import parse from "html-react-parser";
 
 type CodeFactoryProps = {
   data: {
@@ -16,5 +15,5 @@ export const codeFactory = (
   if (!html) {
     return null;
   }
-  return <React.Fragment>{parse(html)}</React.Fragment>;
+  return <React.Fragment>{html}</React.Fragment>;
 };

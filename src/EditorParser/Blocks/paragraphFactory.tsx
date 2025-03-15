@@ -1,6 +1,5 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
-import parse from "html-react-parser";
 
 type ParagraphFactoryProps = {
   data: {
@@ -18,7 +17,7 @@ export const paragraphFactory = (
   }
   return (
     <React.Fragment>
-      <p>{parse(html)}</p>
+      <p>{html}</p>
     </React.Fragment>
   );
 };
