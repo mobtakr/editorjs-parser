@@ -1,0 +1,21 @@
+name: "Build EditorJS Parser"
+
+on:
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  release:
+    name: publish to npm
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v3"
+      - uses: "actions/setup-node@v3"
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: install
+        run: npm ci
+      - name: build
+        run: npm run build
