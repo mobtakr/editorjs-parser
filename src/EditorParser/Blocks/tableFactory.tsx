@@ -1,6 +1,5 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
-import parse from "html-react-parser";
 
 type TableFactoryProps = {
   data: {
@@ -13,26 +12,29 @@ export const tableFactory = (
   block: TableFactoryProps,
   sanitizeHtmlOptions?: IOptions
 ) => {
-  const rows = block?.data?.content;
-
-  const createRows = (rows: string[][]) => {
-    return rows?.map((row, index) => (
-      <tr>
-        {row.map((col) => {
-          const html = sanitizeHtml(col, sanitizeHtmlOptions);
-          return block.data.withHeadings && index === 0 ? (
-            <th scope="col">{parse(html)}</th>
-          ) : (
-            <td>{parse(html)}</td>
-          );
-        })}
-      </tr>
-    ));
-  };
+  const withHeadings = block?.data.withHeadings;
+  const rows = block?.data?.content || [];
+  const normalRows = withHeadings ? rows.slice(1) : rows;
+  const headingRows = withHeadings ? rows.slice(0, 1) : rows;
 
   return (
     <React.Fragment>
-      <table className="table">{createRows(rows)}</table>
+      <table className="table">
+        {headingRows.map((row) => (
+          <tr key={row.join("")}>
+            {row.map((col) => (
+              <th>{sanitizeHtml(col, sanitizeHtmlOptions)}</th>
+            ))}
+          </tr>
+        ))}
+        {normalRows.map((row) => (
+          <tr key={row.join("")}>
+            {row.map((col) => (
+              <td>{sanitizeHtml(col, sanitizeHtmlOptions)}</td>
+            ))}
+          </tr>
+        ))}
+      </table>
     </React.Fragment>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
-import parse from "html-react-parser";
 
 type QuoteFactoryProps = {
   data: {
@@ -23,8 +22,8 @@ export const quoteFactory = (
     <React.Fragment>
       <p>
         <figure>
-          <blockquote>{parse(text)}</blockquote>
-          <figcaption>{parse(caption)}</figcaption>
+          <blockquote>{text}</blockquote>
+          <figcaption>{caption}</figcaption>
         </figure>
       </p>
     </React.Fragment>
