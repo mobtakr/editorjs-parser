@@ -1,9 +1,10 @@
-name: "Publish EditorJS Parser"
+name: "Build EditorJS Parser"
 
 on:
-  push:
+  pull_request:
     branches:
       - "master"
+
 jobs:
   release:
     name: publish to npm
@@ -18,8 +19,3 @@ jobs:
         run: npm ci
       - name: build
         run: npm run build
-      - name: publish
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: "${{ secrets.NPM_TOKEN }}"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
