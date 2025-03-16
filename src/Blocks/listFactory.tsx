@@ -1,18 +1,20 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
+import { BlockFactory } from "./factory";
 
-type CheckListFactoryProps = {
+type ListBlockProps = {
   data: {
-    items: string[];
-    style: "ordered" | "unordered";
+    items?: string[];
+    style?: string | "ordered" | "unordered";
   };
 };
 
-export const checkListFactory = (
-  block: CheckListFactoryProps,
+export const ListFactory: BlockFactory = (
+  block: ListBlockProps,
   sanitizeHtmlOptions?: IOptions
 ) => {
-  const items: string[] = block?.data?.items;
+  const items: string[] = block?.data?.items || [];
+
   const createList = (items: string[]) => {
     return items?.map((item) => {
       const html = sanitizeHtml(item, sanitizeHtmlOptions);

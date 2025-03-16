@@ -1,14 +1,15 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
+import { BlockFactory } from "./factory";
 
 type TableFactoryProps = {
   data: {
-    content: string[][];
-    withHeadings: boolean;
+    content?: string[][];
+    withHeadings?: boolean;
   };
 };
 
-export const tableFactory = (
+export const TableFactory: BlockFactory = (
   block: TableFactoryProps,
   sanitizeHtmlOptions?: IOptions
 ) => {
