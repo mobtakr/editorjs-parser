@@ -1,6 +1,7 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
 import { BlockFactory } from "./factory";
+import { BlockClassFactory } from "../class-factory";
 
 type ParagraphFactoryProps = {
   data: {
@@ -15,9 +16,5 @@ export const ParagraphFactory: BlockFactory = (
   const html = sanitizeHtml(block?.data?.text || "", sanitizeHtmlOptions);
   if (!html) return null;
 
-  return (
-    <React.Fragment>
-      <p>{html}</p>
-    </React.Fragment>
-  );
+  return <p className={BlockClassFactory.create(block)}>{html}</p>;
 };

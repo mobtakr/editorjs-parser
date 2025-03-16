@@ -1,6 +1,7 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
 import { BlockFactory } from "./factory";
+import { BlockClassFactory } from "../class-factory";
 
 type CheckListFactoryProps = {
   data: {
@@ -24,9 +25,9 @@ export const CheckListFactory: BlockFactory = (
   return (
     <React.Fragment>
       {block.data.style === "ordered" ? (
-        <ol>{createList(items)}</ol>
+        <ol className={BlockClassFactory.create(block)}>{createList(items)}</ol>
       ) : (
-        <ul>{createList(items)}</ul>
+        <ul className={BlockClassFactory.create(block)}>{createList(items)}</ul>
       )}
     </React.Fragment>
   );

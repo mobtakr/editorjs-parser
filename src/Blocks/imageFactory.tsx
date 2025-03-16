@@ -19,7 +19,7 @@ export const ImageFactory: BlockFactory = (block: ImageFactoryProps) => {
   const caption = block?.data?.caption
     ? removeTags(block?.data?.caption)
     : undefined;
-  const classList = [];
+  const classList = ["image", "block"];
   if (block?.data?.stretched) classList.push("image-stretched");
   if (block?.data?.withBackground) classList.push("image-with-background");
   if (block?.data?.withBorder) classList.push("image-bordered");

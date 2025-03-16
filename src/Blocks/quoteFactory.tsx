@@ -1,6 +1,7 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
 import { BlockFactory } from "./factory";
+import { BlockClassFactory } from "../class-factory";
 
 type QuoteFactoryProps = {
   data: {
@@ -21,7 +22,7 @@ export const QuoteFactory: BlockFactory = (
   }
   return (
     <React.Fragment>
-      <p>
+      <p className={BlockClassFactory.create(block)}>
         <figure>
           <blockquote>{text}</blockquote>
           <figcaption>{caption}</figcaption>

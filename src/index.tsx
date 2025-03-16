@@ -4,6 +4,9 @@ import { EditorBlockContent } from "./block";
 import { BlockFactory } from "./Blocks/factory";
 import { IOptions } from "sanitize-html";
 
+export * from "./Blocks/factory";
+export * from "./content";
+
 type Props = {
   /**
    * Editor.js output.blocks.

@@ -1,10 +1,8 @@
 import { EditorBlock } from "./content";
 
 export class BlockClassFactory {
-    static create(block: EditorBlock) {
-        const classList = ["editorjs-block block"];
-        if (block?.type) classList.push(`block-${block?.type}`.toLowerCase());
-        classList.push(block?.type);
+    static create(block: Partial<EditorBlock>) {
+        const classList = ["block", block?.type].filter(Boolean);
 
         return classList.join(" ");
     }

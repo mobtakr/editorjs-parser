@@ -1,6 +1,7 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
 import { BlockFactory } from "./factory";
+import { BlockClassFactory } from "../class-factory";
 
 type TableFactoryProps = {
   data: {
@@ -19,23 +20,21 @@ export const TableFactory: BlockFactory = (
   const headingRows = withHeadings ? rows.slice(0, 1) : rows;
 
   return (
-    <React.Fragment>
-      <table className="table">
-        {headingRows.map((row) => (
-          <tr key={row.join("")}>
-            {row.map((col) => (
-              <th>{sanitizeHtml(col, sanitizeHtmlOptions)}</th>
-            ))}
-          </tr>
-        ))}
-        {normalRows.map((row) => (
-          <tr key={row.join("")}>
-            {row.map((col) => (
-              <td>{sanitizeHtml(col, sanitizeHtmlOptions)}</td>
-            ))}
-          </tr>
-        ))}
-      </table>
-    </React.Fragment>
+    <table className={BlockClassFactory.create(block)}>
+      {headingRows.map((row) => (
+        <tr key={row.join("")}>
+          {row.map((col) => (
+            <th>{sanitizeHtml(col, sanitizeHtmlOptions)}</th>
+          ))}
+        </tr>
+      ))}
+      {normalRows.map((row) => (
+        <tr key={row.join("")}>
+          {row.map((col) => (
+            <td>{sanitizeHtml(col, sanitizeHtmlOptions)}</td>
+          ))}
+        </tr>
+      ))}
+    </table>
   );
 };
