@@ -2,8 +2,6 @@
 
 The package lets you render the content of Editor.js and lets you extend the functionality easily.
 
-Thanks, [@klaucode](https://github.com/klaucode) for the enhancements and the additions of new blocks.
-
 ## Install the package
 
 Run
@@ -67,30 +65,22 @@ npm install @mobtakr/editorjs-parser
 **Then create a component to render the content**
 
 ```
-import { EditorParser, EditorRenderer } from "@mobtakr/editorjs-parser";
-import styles from "./PostContent.module.css";
+import { EditorContent } from "@mobtakr/editorjs-parser";
 
-const PostContent = (props: { content: string }) => {
+export const PostContent = (props: { content: string }) => {
   const content = JSON.parse(props.content);
-  const parser = new EditorParser(content.blocks);
+  const blocks = content.blocks;
 
-  const parsedBlocks = parser.parse();
-  return (
-    <>
-      <EditorRenderer parsedBlocks={parsedBlocks} styles={styles} />
-    </>
-  );
+  return (<EditorContent blocks={blocks} sanitizeHtmlOptions={} />);
 };
-
-export default PostContent;
 
 ```
 
-In the example above you first, parse the JSON object then, create an instance of EditorParser and pass it `content.blocks`.
+In the example above you first, parse the JSON object
 
-Now, you can get the parsed blocks by calling the `parse method`.
+Finally, pass a blocks prop `<EditorContent />` component.
 
-Finally, pass a parsedBlocks prop and a styles object to `<EditorRenderer />` component.
+Optional you can pass sanitizeHtmlOptions, See https://www.npmjs.com/package/sanitize-html
 
 ## Styling and the Style Object
 
@@ -106,9 +96,7 @@ Each Editor.js block has a type and an id.
 }
 ```
 
-The EditorRenderer component expects a style object that contains styles for each type.
-
-For type `paragraph` you can pass a style object like this
+For type `paragraph` you can style it like this
 
 ```
 .paragraph {
@@ -142,37 +130,47 @@ So you can add some shared styles to your blocks.
 
 ## Add support for additional blocks
 
-You can extend the functionality of this package by adding new blocks.
+You can extend the functionality or override a default block by passing the block as a prop to EditorContent.
 
-The `registerBlock method` of the EditorParser class enables you to parse more blocks.
-It expects two arguments
+For each block, you can pass a prob where the key is the type of the block and the value is a function that accepts 
 
-1.  The type or the block.
-2.  A function that takes the block as an argument and returns a React component.
+1.  The block data.
+2.  An optional sanitize html option.
+
+and returns ReactNode or JSX.
 
 ### Example
 
-This is a React component that takes a block as an argument and returns a paragraph.
-
 ```
-const TextBlock = (props: { block: any }) => {
- const block = props.block;
- const text = block.data?.text;
- return <p>{text}</p>;
+import { EditorContent, BlockFactory } from "@mobtakr/editorjs-parser";
+
+type ParagraphFactoryProps = {
+  data: {
+    text?: string;
+  };
 };
 
-export default TextBlock;
-```
+export const ParagraphFactory: BlockFactory = (
+  block: ParagraphFactoryProps,
+  sanitizeHtmlOptions?: IOptions
+) => {
+  const html = sanitizeHtml(block?.data?.text || "", sanitizeHtmlOptions);
+  if (!html) return null;
 
-Now, you can create a function that takes a block as an argument and returns that component. `TextBlock`
+  return (
+    <React.Fragment>
+      <p>{html}</p>
+    </React.Fragment>
+  );
+};
 
-```
-export const paragraphMapFunc = (block: any) => <TextBlock block={block} />;
-```
 
-Finally, you can add this block using the `registerBlock method`.
+export const PostContent = (props: { content: string }) => {
+  const content = JSON.parse(props.content);
+  const blocks = content.blocks;
 
-```
-const parser = new EditorParser(content.blocks);
-parser.registerBlock('paragraph', paragraphMapFunc)
+  return (<EditorContent blocks={blocks} sanitizeHtmlOptions={} paragraph={ParagraphFactory}/>);
+};
+
+
 ```

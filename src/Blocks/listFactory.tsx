@@ -1,18 +1,20 @@
 import React from "react";
 import sanitizeHtml, { IOptions } from "sanitize-html";
+import { BlockFactory } from "./factory";
+import { BlockClassFactory } from "../class-factory";
 
 type ListBlockProps = {
   data: {
-    items: string[];
-    style: "ordered" | "unordered";
+    items?: string[];
+    style?: string | "ordered" | "unordered";
   };
 };
 
-export const listFactory = (
+export const ListFactory: BlockFactory = (
   block: ListBlockProps,
   sanitizeHtmlOptions?: IOptions
 ) => {
-  const items: string[] = block?.data?.items;
+  const items: string[] = block?.data?.items || [];
 
   const createList = (items: string[]) => {
     return items?.map((item) => {
@@ -24,9 +26,9 @@ export const listFactory = (
   return (
     <React.Fragment>
       {block.data.style === "ordered" ? (
-        <ol>{createList(items)}</ol>
+        <ol className={BlockClassFactory.create(block)}>{createList(items)}</ol>
       ) : (
-        <ul>{createList(items)}</ul>
+        <ul className={BlockClassFactory.create(block)}>{createList(items)}</ul>
       )}
     </React.Fragment>
   );
