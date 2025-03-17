@@ -1,6 +1,7 @@
 # Editor.js Parser and Renderer for React.js or Next.js
 
 The package lets you render the content of Editor.js and lets you extend the functionality easily.
+<a href="https://www.npmjs.com/package/@mobtakr/editorjs-parser"><img alt="NPM version" src="https://img.shields.io/npm/v/@mobtakr/editorjs-parser.svg?style=for-the-badge&labelColor=000000"></a>
 
 ## Install the package
 

@@ -12,7 +12,13 @@ jobs:
     permissions:
       contents: read
       id-token: write
-
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deno install
+      - uses: denoland/setup-deno@v2
+      - name: install
+        run: deno install
+
       - name: Publish
         run: npx jsr publish
