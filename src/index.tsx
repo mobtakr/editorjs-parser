@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { EditorBlock, EditorBlockType } from "./content";
 import { EditorBlockContent } from "./block";
 import { BlockFactory } from "./Blocks/factory";
@@ -16,7 +16,7 @@ type Props = {
   sanitizeHtmlOptions?: IOptions;
 } & Partial<Record<EditorBlockType, BlockFactory>>;
 
-export const EditorContent = (props: Props) => {
+export const EditorContent = (props: Props): ReactNode => {
   return (
     <React.Fragment>
       {(props.blocks || []).map((block: EditorBlock) => (
